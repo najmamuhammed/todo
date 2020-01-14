@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- edit -->
+<html ng-app="App">
+    <head>
+        <meta charset="utf-8">
+        <title>Angular Example</title>
+    </head>
+    <!-- edit -->
+    <body ng-controller="mainController">
+        <input ng-model="temp" type="text"/>
+        <button ng-click="getToDo(temp)"> Add</button>
+        <ul>
+            <li ng-repeat='todo in todos'>
+                <input type="checkbox" ng-click="updateToDo(todo.id)" ng-model='todo.status' />
+                <span ng-class="{strike: todo.status}">{{todo.todo}}</span>
+            </li>
+        </ul>
+        <a ng-if='todos.length > 0'>
+            <button ng-click="selectAll(true)"> Select All</button>
+            <button ng-click="selectAll(false)"> Deselect All</button>
+            <button ng-click="selectAll('empty')">Clear</button>
+        </a>
+        <div>
+            <my-customer info="naomi"></my-customer>
+            <hr>
+            <my-customer info="naomi"></my-customer>
+        </div>
+        <div >
+            {{message}}
+            <my-dialog ng-hide="dialogIsHidden" on-close="hideDialog(message)">
+              Check out the contents, {{name}}!
+            </my-dialog>
+          </div>
+    </body>
+    <script type="text/javascript" src="./node_modules/angular/angular.js"></script>
+    
+    <!-- edit -->
+    <script type="text/javascript" src="./app.js"></script>
+    <link rel="stylesheet" ng-href="./styles.css">
+</html>
